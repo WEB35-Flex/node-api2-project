@@ -1,11 +1,15 @@
 const express = require("express");
 
+const postsRouter = require("./posts/postsRouter");
+
 const server = express();
 
 server.use(express.json());
 
+server.use("/api/posts", postsRouter);
+
 server.get("/", (req, res) => {
-  console.log("Hello from express!");
+  res.send(`<h1>Hello from Express!<h1>`);
 });
 
 const port = 8000;
